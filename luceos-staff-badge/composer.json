@@ -1,0 +1,41 @@
+{
+    "name": "luceos/flarum-ext-staff-badge",
+    "description": "Display a user staff badge on profiles!",
+    "keywords": [
+      "flarum"
+    ],
+    "type": "flarum-extension",
+    "license": "MIT",
+    "support": {
+      "source": "https://github.com/FreeFlarum/extensions/tree/main/luceos-staff-badge"
+    },
+    "require": {
+      "flarum/core": "^2.0.0"
+    },
+    "replaces": {
+       "serakoi/flarumstaffbadge": "*"
+    },
+    "authors": [
+      {
+        "name": "Serakoi",
+        "email": "admin@seer-software.com",
+        "role": "Developer"
+      },
+      {
+        "name": "Prodev",
+        "email": "admin@seer-software.com",
+        "role": "Developer"
+      }
+    ],
+    "extra": {
+      "flarum-extension": {
+        "title": "Staff Badge",
+        "category": "feature",
+        "icon": {
+          "name": "fas fa-address-card",
+          "backgroundColor": "#0045ff",
+          "color": "#fff"
+        }
+      }
+    }
+}
