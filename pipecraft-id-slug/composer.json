@@ -16,7 +16,7 @@
     ],
     "support": {
         "issues": "https://github.com/PipecraftNet/flarum-ext-id-slug/issues",
-        "source": "https://github.com/PipecraftNet/flarum-ext-id-slug"
+        "source": "https://github.com/FreeFlarum/extensions/tree/main/pipecraft-id-slug"
     },
     "homepage": "https://github.com/PipecraftNet",
     "require": {

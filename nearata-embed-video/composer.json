@@ -16,8 +16,7 @@
     "license": "Unlicense",
     "support": {
         "issues": "https://github.com/Nearata/flarum-ext-embed-video/issues",
-        "source": "https://github.com/Nearata/flarum-ext-embed-video",
-        "forum": "https://discuss.flarum.org/d/24527"
+        "source": "https://github.com/FreeFlarum/extensions/tree/main/nearata-embed-video"
     },
     "require": {
         "php": "^8.3",

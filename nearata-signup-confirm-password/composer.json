@@ -11,8 +11,7 @@
     "license": "Unlicense",
     "support": {
         "issues": "https://github.com/Nearata/flarum-ext-signup-confirm-password/issues",
-        "source": "https://github.com/Nearata/flarum-ext-signup-confirm-password",
-        "forum": "https://discuss.flarum.org/d/24527"
+        "source": "https://github.com/FreeFlarum/extensions/tree/main/nearata-signup-confirm-password"
     },
     "require": {
         "php": "^8.3",

@@ -9,7 +9,7 @@
     "homepage": "https://blomstra.net",
     "support": {
         "issues": "https://github.com/blomstra/flarum-ext-welcome-login/issues",
-        "source": "https://github.com/blomstra/flarum-ext-welcome-login"
+        "source": "https://github.com/FreeFlarum/extensions/tree/main/blomstra-welcome-login"
     },
     "require": {
         "flarum/core": "^2.0.0"

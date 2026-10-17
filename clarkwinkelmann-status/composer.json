@@ -19,8 +19,7 @@
         }
     ],
     "support": {
-        "source": "https://github.com/clarkwinkelmann/flarum-ext-status",
-        "forum": "https://discuss.flarum.org/d/21983"
+        "source": "https://github.com/FreeFlarum/extensions/tree/main/clarkwinkelmann-status"
     },
     "autoload": {
         "psr-4": {

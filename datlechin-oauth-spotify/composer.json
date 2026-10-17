@@ -21,8 +21,7 @@
         }
     ],
     "support": {
-        "source": "https://github.com/datlechin/flarum-oauth-spotify",
-        "forum": "https://discuss.flarum.org/d/33338"
+        "source": "https://github.com/FreeFlarum/extensions/tree/main/datlechin-oauth-spotify"
     },
     "autoload": {
         "psr-4": {

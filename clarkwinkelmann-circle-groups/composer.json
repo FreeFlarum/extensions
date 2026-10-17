@@ -21,8 +21,7 @@
     ],
     "support": {
         "issues": "https://github.com/clarkwinkelmann/flarum-ext-circle-groups/issues",
-        "source": "https://github.com/clarkwinkelmann/flarum-ext-circle-groups",
-        "forum": "https://discuss.flarum.org/d/20544"
+        "source": "https://github.com/FreeFlarum/extensions/tree/main/clarkwinkelmann-circle-groups"
     },
     "extra": {
         "flarum-extension": {

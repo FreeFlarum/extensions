@@ -8,8 +8,7 @@
     "license": "MIT",
     "support": {
         "issues": "https://github.com/FriendsOfFlarum/discussion-language/issues",
-        "source": "https://github.com/FriendsOfFlarum/discussion-language",
-        "forum": "https://discuss.flarum.org/d/23702"
+        "source": "https://github.com/FreeFlarum/extensions/tree/main/fof-discussion-language"
     },
     "homepage": "https://friendsofflarum.org",
     "funding": [

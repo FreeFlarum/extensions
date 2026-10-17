@@ -17,8 +17,7 @@
     ],
     "support": {
         "issues": "https://github.com/ramesh-dada/bbcode-alerts/issues",
-        "source": "https://github.com/ramesh-dada/bbcode-alerts",
-        "discuss": "https://discuss.flarum.org/d/28097"
+        "source": "https://github.com/FreeFlarum/extensions/tree/main/ramesh-dada-download-button"
     },
     "require": {
         "flarum/core": "^2.0.0"

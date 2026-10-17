@@ -21,8 +21,7 @@
     ],
     "support": {
         "issues": "https://github.com/migratetoflarum/canonical/issues",
-        "source": "https://github.com/migratetoflarum/canonical",
-        "forum": "https://discuss.flarum.org/d/19307"
+        "source": "https://github.com/FreeFlarum/extensions/tree/main/migratetoflarum-canonical"
     },
     "extra": {
         "flarum-extension": {

@@ -8,7 +8,7 @@
     },
     "support": {
         "issues": "https://github.com/Ziiven/flarum-post-number/issues",
-        "source": "https://github.com/Ziiven/flarum-post-number"
+        "source": "https://github.com/FreeFlarum/extensions/tree/main/ziiven-post-number"
     },
     "autoload": {
         "psr-4": {

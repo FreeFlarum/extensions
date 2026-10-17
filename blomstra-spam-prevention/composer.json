@@ -10,6 +10,9 @@
             "homepage": "https://luceos.com"
         }
     ],
+    "support": {
+        "source": "https://github.com/FreeFlarum/extensions/tree/main/blomstra-spam-prevention"
+    },
     "require": {
         "php": "^8.3",
         "flarum/core": "^2.0.0",

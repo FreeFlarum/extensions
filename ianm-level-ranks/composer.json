@@ -24,8 +24,7 @@
     ],
     "support": {
         "issues": "https://github.com/imorland/level-ranks/issues",
-        "source": "https://github.com/imorland/level-ranks",
-        "forum": "https://discuss.flarum.org/d/27869"
+        "source": "https://github.com/FreeFlarum/extensions/tree/main/ianm-level-ranks"
     },
     "require": {
         "flarum/core": "^2.0.0"

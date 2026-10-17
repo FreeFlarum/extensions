@@ -8,8 +8,7 @@
     "license": "MIT",
     "support": {
         "issues": "https://github.com/askvortsov1/flarum-help-tags/issues",
-        "source": "https://github.com/askvortsov1/flarum-help-tags",
-        "forum": "https://discuss.flarum.org/d/23004-flarum-help-tags"
+        "source": "https://github.com/FreeFlarum/extensions/tree/main/askvortsov-help-tags"
     },
     "require": {
         "flarum/core": "^2.0.0",

@@ -18,7 +18,7 @@
     ],
     "support": {
         "issues": "https://github.com/mickmelon/flarum-ext-coloured-usernames/issues",
-        "source": "https://github.com/mickmelon/flarum-ext-coloured-usernames"
+        "source": "https://github.com/FreeFlarum/extensions/tree/main/mickmelon-coloured-usernames"
     },
     "require": {
         "flarum/core": "^2.0.0"

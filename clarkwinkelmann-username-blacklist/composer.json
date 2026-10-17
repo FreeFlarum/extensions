@@ -22,8 +22,7 @@
         }
     ],
     "support": {
-        "source": "https://github.com/clarkwinkelmann/flarum-ext-username-blacklist",
-        "forum": "https://discuss.flarum.org/d/28378"
+        "source": "https://github.com/FreeFlarum/extensions/tree/main/clarkwinkelmann-username-blacklist"
     },
     "autoload": {
         "psr-4": {

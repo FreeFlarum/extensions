@@ -8,8 +8,7 @@
     "license": "MIT",
     "support": {
         "issues": "https://github.com/askvortsov1/flarum-auto-moderator/issues",
-        "source": "https://github.com/askvortsov1/flarum-auto-moderator",
-        "forum": "https://discuss.flarum.org/d/27306-flarum-automoderator"
+        "source": "https://github.com/FreeFlarum/extensions/tree/main/askvortsov-auto-moderator"
     },
     "require": {
         "flarum/core": "^2.0.0"

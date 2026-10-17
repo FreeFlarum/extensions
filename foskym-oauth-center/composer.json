@@ -9,6 +9,9 @@
     ],
     "type": "flarum-extension",
     "license": "MIT",
+    "support": {
+        "source": "https://github.com/FreeFlarum/extensions/tree/main/foskym-oauth-center"
+    },
     "require": {
         "flarum/core": "^2.0.0",
         "bshaffer/oauth2-server-php": "*"

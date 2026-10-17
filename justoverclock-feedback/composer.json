@@ -8,8 +8,7 @@
   "license": "MIT",
   "support": {
     "issues": "https://github.com/justoverclockl/flarum-ext-feedback/issues",
-    "source": "https://github.com/justoverclockl/flarum-ext-feedback",
-    "forum": "https://discuss.flarum.org/d/28089-feedback"
+    "source": "https://github.com/FreeFlarum/extensions/tree/main/justoverclock-feedback"
   },
   "require": {
     "flarum/core": "^2.0.0"

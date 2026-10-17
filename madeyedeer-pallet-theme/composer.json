@@ -22,7 +22,7 @@
     ],
     "support": {
         "issues": "https://github.com/MadEyeDeer/flarum-pallet-theme/issues",
-        "source": "https://github.com/MadEyeDeer/flarum-pallet-theme"
+        "source": "https://github.com/FreeFlarum/extensions/tree/main/madeyedeer-pallet-theme"
     },
     "require": {
         "flarum/core": "^2.0.0",

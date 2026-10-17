@@ -8,8 +8,7 @@
     "license": "MIT",
     "support": {
         "issues": "https://github.com/zDaleZ/fluent-flarum/issues",
-        "source": "https://github.com/zDaleZ/fluent-flarum",
-        "forum": "https://discuss.flarum.org/d/21492"
+        "source": "https://github.com/FreeFlarum/extensions/tree/main/dalez-fluent-flarum"
     },
     "require": {
         "flarum/core": "^2.0.0"

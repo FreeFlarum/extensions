@@ -8,8 +8,7 @@
     "license": "MIT",
     "support": {
         "issues": "https://github.com/FriendsOfFlarum/secure-https/issues",
-        "source": "https://github.com/FriendsOfFlarum/secure-https",
-        "forum": "https://discuss.flarum.org/d/17771"
+        "source": "https://github.com/FreeFlarum/extensions/tree/main/fof-secure-https"
     },
     "homepage": "https://friendsofflarum.org",
     "funding": [

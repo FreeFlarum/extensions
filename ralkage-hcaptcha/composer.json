@@ -25,8 +25,7 @@
     ],
     "homepage": "https://ralkage.com",
     "support": {
-        "source": "https://github.com/Ralkage/flarum-hcaptcha",
-        "forum": "https://discuss.flarum.org/d/28257"
+        "source": "https://github.com/FreeFlarum/extensions/tree/main/ralkage-hcaptcha"
     },
     "autoload": {
         "psr-4": {

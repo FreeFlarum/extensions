@@ -19,8 +19,7 @@
     ],
     "support": {
         "issues": "https://github.com/clarkwinkelmann/flarum-ext-post-permissions/issues",
-        "source": "https://github.com/clarkwinkelmann/flarum-ext-post-permissions",
-        "forum": "https://discuss.flarum.org/d/26521"
+        "source": "https://github.com/FreeFlarum/extensions/tree/main/clarkwinkelmann-post-permissions"
     },
     "autoload": {
         "psr-4": {

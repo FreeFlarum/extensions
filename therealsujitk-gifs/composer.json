@@ -10,8 +10,7 @@
     "license": "MIT",
     "support": {
         "issues": "https://github.com/therealsujitk/flarum-ext-gifs/issues",
-        "source": "https://github.com/therealsujitk/flarum-ext-gifs",
-        "forum": "https://discuss.flarum.org/d/23101"
+        "source": "https://github.com/FreeFlarum/extensions/tree/main/therealsujitk-gifs"
     },
     "homepage": "https://therealsuji.tk",
     "require": {

@@ -19,8 +19,7 @@
     "homepage": "https://ralkage.com",
     "support": {
         "issues": "https://github.com/miniflar/bbcode-progress-bars/issues",
-        "source": "https://github.com/miniflar/bbcode-progress-bars",
-        "forum": "https://discuss.flarum.org/d/28694"
+        "source": "https://github.com/FreeFlarum/extensions/tree/main/miniflar-bbcode-progress-bars"
     },
     "require": {
         "flarum/core": "^2.0.0"

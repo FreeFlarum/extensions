@@ -22,8 +22,7 @@
         }
     ],
     "support": {
-        "source": "https://github.com/clarkwinkelmann/flarum-ext-discussion-bookmarks",
-        "forum": "https://discuss.flarum.org/d/25357"
+        "source": "https://github.com/FreeFlarum/extensions/tree/main/clarkwinkelmann-discussion-bookmarks"
     },
     "autoload": {
         "psr-4": {

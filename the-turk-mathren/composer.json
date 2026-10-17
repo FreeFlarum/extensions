@@ -21,7 +21,7 @@
     ],
     "support": {
         "issues": "https://github.com/the-turk/flarum-mathren/issues",
-        "source": "https://github.com/the-turk/flarum-mathren",
+        "source": "https://github.com/FreeFlarum/extensions/tree/main/the-turk-mathren",
         "docs": "https://katex.org/docs/options.html"
     },
     "require": {

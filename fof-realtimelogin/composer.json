@@ -18,8 +18,7 @@
     ],
     "support": {
         "issues": "https://github.com/friendsofflarum/realtimelogin/issues",
-        "source": "https://github.com/friendsofflarum/realtimelogin",
-        "forum": "https://discuss.flarum.org/d/23220"
+        "source": "https://github.com/FreeFlarum/extensions/tree/main/fof-realtimelogin"
     },
     "homepage": "https://friendsofflarum.org",
     "funding": [

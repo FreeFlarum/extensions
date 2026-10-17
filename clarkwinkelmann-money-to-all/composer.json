@@ -20,8 +20,7 @@
         }
     ],
     "support": {
-        "source": "https://github.com/clarkwinkelmann/flarum-ext-money-to-all",
-        "forum": "https://discuss.flarum.org/d/31843"
+        "source": "https://github.com/FreeFlarum/extensions/tree/main/clarkwinkelmann-money-to-all"
     },
     "autoload": {
         "psr-4": {

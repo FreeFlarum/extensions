@@ -11,9 +11,8 @@
     ],
     "homepage": "https://v17.dev/projects/flarum-user-badges",
     "support": {
-        "forum": "https://discuss.flarum.org/d/26449",
         "issues": "https://github.com/v17development/flarum-user-badges/issues",
-        "source": "https://github.com/v17development/flarum-user-badges",
+        "source": "https://github.com/FreeFlarum/extensions/tree/main/v17development-user-badges",
         "docs": "https://community.v17.dev/knowledgebase/category/flarum-user-badges"
     },
     "autoload": {

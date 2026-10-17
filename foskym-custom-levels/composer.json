@@ -2,6 +2,9 @@
     "name": "foskym/flarum-custom-levels",
     "description": " Flarum Custom Levels, levels can be customized, and can trigger events.",
     "type": "flarum-extension",
+    "support": {
+        "source": "https://github.com/FreeFlarum/extensions/tree/main/foskym-custom-levels"
+    },
     "require": {
         "flarum/core": "^2.0.0"
     },

@@ -18,8 +18,7 @@
     ],
     "support": {
         "issues": "https://github.com/clarkwinkelmann/catch-the-fish/issues",
-        "source": "https://github.com/clarkwinkelmann/catch-the-fish",
-        "forum": "https://discuss.flarum.org/d/19532"
+        "source": "https://github.com/FreeFlarum/extensions/tree/main/clarkwinkelmann-catch-the-fish"
     },
     "require": {
         "flarum/core": "^2.0.0",

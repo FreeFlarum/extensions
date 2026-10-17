@@ -6,6 +6,9 @@
     ],
     "type": "flarum-extension",
     "license": "GPL-2.0",
+    "support": {
+        "source": "https://github.com/FreeFlarum/extensions/tree/main/imdong-spam-alert"
+    },
     "require": {
         "flarum/core": "^2.0.0"
     },

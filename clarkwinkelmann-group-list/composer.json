@@ -18,8 +18,7 @@
         }
     ],
     "support": {
-        "source": "https://github.com/clarkwinkelmann/flarum-ext-group-list",
-        "forum": "https://discuss.flarum.org/d/25386"
+        "source": "https://github.com/FreeFlarum/extensions/tree/main/clarkwinkelmann-group-list"
     },
     "autoload": {
         "psr-4": {

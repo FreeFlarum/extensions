@@ -6,7 +6,7 @@
     "license": "MIT",
     "support": {
         "issues": "https://github.com/nyu8/flarum-email-filter/issues",
-        "source": "https://github.com/nyu8/flarum-email-filter"
+        "source": "https://github.com/FreeFlarum/extensions/tree/main/nyu8-email-filter"
     },
     "autoload": {
         "psr-4": {

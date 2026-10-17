@@ -12,8 +12,7 @@
     "license": "MIT",
     "support": {
         "issues": "https://github.com/xrh0905/flarum-ext-oauth-microsoft/issues",
-        "source": "https://github.com/xrh0905/flarum-ext-oauth-microsoft",
-        "forum": "https://github.com/xrh0905/flarum-ext-oauth-microsoft/discussions"
+        "source": "https://github.com/FreeFlarum/extensions/tree/main/xrh0905-oauth-microsoft"
     },
     "require": {
         "flarum/core": "^2.0.0",

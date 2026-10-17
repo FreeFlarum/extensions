@@ -6,6 +6,9 @@
     ],
     "type": "flarum-extension",
     "license": "MIT",
+    "support": {
+        "source": "https://github.com/FreeFlarum/extensions/tree/main/justoverclock-dontgoaway"
+    },
     "require": {
         "flarum/core": "^2.0.0"
     },

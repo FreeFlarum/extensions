@@ -21,8 +21,7 @@
     ],
     "support": {
         "issues": "https://github.com/clarkwinkelmann/flarum-ext-shadow-ban/issues",
-        "source": "https://github.com/clarkwinkelmann/flarum-ext-shadow-ban",
-        "forum": "https://discuss.flarum.org/d/27555"
+        "source": "https://github.com/FreeFlarum/extensions/tree/main/clarkwinkelmann-shadow-ban"
     },
     "autoload": {
         "psr-4": {

@@ -18,8 +18,7 @@
         }
     ],
     "support": {
-        "source": "https://github.com/clarkwinkelmann/flarum-ext-author-change",
-        "forum": "https://discuss.flarum.org/d/24627"
+        "source": "https://github.com/FreeFlarum/extensions/tree/main/clarkwinkelmann-group-invitation"
     },
     "autoload": {
         "psr-4": {

@@ -24,8 +24,7 @@
     ],
     "support": {
         "issues": "https://github.com/FriendsOfFlarum/masquerade/issues",
-        "source": "https://github.com/FriendsOfFlarum/masquerade",
-        "forum": "https://discuss.flarum.org/d/5791"
+        "source": "https://github.com/FreeFlarum/extensions/tree/main/fof-masquerade"
     },
     "require": {
         "php": "^8.3",

@@ -17,9 +17,8 @@
         }
     ],
     "support": {
-        "source": "https://github.com/SychO9/flarum-lite-youtube",
-        "issues": "https://github.com/SychO9/flarum-lite-youtube/issues",
-        "forum": "https://discuss.flarum.org/d/31817-lite-youtube-embed/5"
+        "source": "https://github.com/FreeFlarum/extensions/tree/main/sycho-lite-youtube",
+        "issues": "https://github.com/SychO9/flarum-lite-youtube/issues"
     },
     "autoload": {
         "psr-4": {
