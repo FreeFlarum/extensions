@@ -1,0 +1,45 @@
+{
+    "name": "xrh0905/oauth-microsoft",
+    "description": "Log in to your Flarum forum with Microsoft",
+    "keywords": [
+        "flarum",
+        "microsoft",
+        "sso",
+        "oauth",
+        "login"
+    ],
+    "type": "flarum-extension",
+    "license": "MIT",
+    "support": {
+        "issues": "https://github.com/xrh0905/flarum-ext-oauth-microsoft/issues",
+        "source": "https://github.com/xrh0905/flarum-ext-oauth-microsoft",
+        "forum": "https://github.com/xrh0905/flarum-ext-oauth-microsoft/discussions"
+    },
+    "require": {
+        "flarum/core": "^2.0.0",
+        "fof/oauth": "^2.0",
+        "thenetworg/oauth2-azure": "^2.2"
+    },
+    "authors": [
+        {
+            "name": "xrh0905",
+            "homepage": "https://github.com/xrh0905"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "xrh0905\\OAuthMicrosoft\\": "src/"
+        }
+    },
+    "extra": {
+        "flarum-extension": {
+            "title": "Log In With Microsoft",
+            "category": "feature",
+            "icon": {
+                "name": "fab fa-microsoft",
+                "backgroundColor": "#0072e3",
+                "color": "#fff"
+            }
+        }
+    }
+}

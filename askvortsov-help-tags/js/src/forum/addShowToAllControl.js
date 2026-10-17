@@ -1,0 +1,35 @@
+import app from 'flarum/forum/app';
+import { extend } from 'flarum/common/extend';
+import DiscussionControls from 'flarum/forum/utils/DiscussionControls';
+import DiscussionPage from 'flarum/forum/components/DiscussionPage';
+import Button from 'flarum/common/components/Button';
+
+export default function addShowToAllControl() {
+  extend(DiscussionControls, 'moderationControls', function (items, discussion) {
+    if (discussion.canShowToAll()) {
+      items.add(
+        'showToAll',
+        <Button icon={discussion.showToAll() ? 'fas fa-eye-slash' : 'fas fa-eye'} onclick={this.showToAllAction.bind(discussion)}>
+          {app.translator.trans(
+            discussion.showToAll()
+              ? 'askvortsov-help-tags.forum.discussion_controls.unshow_to_all_button'
+              : 'askvortsov-help-tags.forum.discussion_controls.show_to_all_button'
+          )}
+        </Button>
+      );
+    }
+  });
+
+  DiscussionControls.showToAllAction = function () {
+    this.save({ showToAll: !this.showToAll() }).then(() => {
+      if (app.current.matches(DiscussionPage)) {
+        app.current
+          .get('stream')
+          .update()
+          .then(() => m.redraw());
+      } else {
+        m.redraw();
+      }
+    });
+  };
+}

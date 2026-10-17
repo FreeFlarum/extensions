@@ -1,0 +1,16 @@
+{
+  "name": "@freeflarum/justoverclock-feedback",
+  "private": true,
+  "scripts": {
+    "dev": "webpack --mode development --watch",
+    "build": "webpack --mode production"
+  },
+  "dependencies": {
+    "@betahuhn/feedback-js": "^2.1.0"
+  },
+  "devDependencies": {
+    "flarum-webpack-config": "^3.0.6",
+    "webpack": "^5",
+    "webpack-cli": "^5"
+  }
+}

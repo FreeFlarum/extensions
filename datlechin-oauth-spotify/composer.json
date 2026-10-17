@@ -1,0 +1,64 @@
+{
+    "name": "datlechin/flarum-oauth-spotify",
+    "description": "Spotify oauth provider for Flarum.",
+    "keywords": [
+        "flarum",
+        "spotify",
+        "oauth"
+    ],
+    "type": "flarum-extension",
+    "license": "MIT",
+    "require": {
+        "flarum/core": "^2.0.0",
+        "fof/oauth": "^2.0"
+    },
+    "authors": [
+        {
+            "name": "Ngo Quoc Dat",
+            "email": "datlechin@gmail.com",
+            "role": "Developer",
+            "homepage": "https://ngoquocdat.dev"
+        }
+    ],
+    "support": {
+        "source": "https://github.com/datlechin/flarum-oauth-spotify",
+        "forum": "https://discuss.flarum.org/d/33338"
+    },
+    "autoload": {
+        "psr-4": {
+            "Datlechin\\OAuthSpotify\\": "src/"
+        }
+    },
+    "extra": {
+        "flarum-extension": {
+            "title": "Log in With Spotify",
+            "category": "extension",
+            "icon": {
+                "name": "fab fa-spotify",
+                "color": "#fff",
+                "backgroundColor": "#1db954"
+            }
+        },
+        "flarum-cli": {
+            "modules": {
+                "admin": true,
+                "forum": false,
+                "js": true,
+                "jsCommon": false,
+                "css": true,
+                "locale": true,
+                "gitConf": true,
+                "githubActions": true,
+                "prettier": true,
+                "typescript": true,
+                "bundlewatch": false,
+                "backendTesting": false,
+                "editorConfig": true,
+                "styleci": false
+            }
+        }
+    },
+    "require-dev": {
+        "laravel/pint": "^1.13"
+    }
+}

@@ -1,0 +1,16 @@
+{
+  "name": "@freeflarum/clarkwinkelmann-status",
+  "private": true,
+  "dependencies": {
+    "simple-emoji-map": "^0.4"
+  },
+  "scripts": {
+    "dev": "webpack --mode development --watch",
+    "build": "webpack --mode production"
+  },
+  "devDependencies": {
+    "flarum-webpack-config": "^3.0.6",
+    "webpack": "^5",
+    "webpack-cli": "^5"
+  }
+}

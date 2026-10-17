@@ -1,0 +1,41 @@
+{
+    "name": "justoverclock/youtube-video-feed",
+    "description": "Fetch last youtube videos from youtube",
+    "keywords": [
+        "widget",
+        "forum widgets",
+        "youtube widget"
+    ],
+    "type": "flarum-extension",
+    "license": "MIT",
+    "require": {
+        "flarum/core": "^2.0.0",
+        "fof/forum-widgets-core": "^2.0"
+    },
+    "require-dev": {
+        "flarum/testing": "^2.0.0"
+    },
+    "authors": [
+        {
+            "name": "Marco Colia",
+            "email": "info@flarum.it",
+            "role": "Developer"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Justoverclock\\YtVideoFeed\\": "src/"
+        }
+    },
+    "extra": {
+        "flarum-extension": {
+            "title": "Youtube Video Feed",
+            "category": "",
+            "icon": {
+                "name": "fab fa-youtube",
+                "backgroundColor": "white",
+                "color": "red"
+            }
+        }
+    }
+}

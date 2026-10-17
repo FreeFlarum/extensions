@@ -1,0 +1,60 @@
+<?php
+
+namespace Ralkage\HCaptcha;
+
+use Flarum\Api\Context;
+use Flarum\Api\Resource\DiscussionResource;
+use Flarum\Api\Resource\ForumResource;
+use Flarum\Api\Resource\PostResource;
+use Flarum\Api\Resource\UserResource;
+use Flarum\Api\Schema;
+use Flarum\Discussion\Event\Saving as DiscussionSaving;
+use Flarum\Extend;
+use Flarum\Forum\LogInValidator;
+use Flarum\Post\Event\Saving as PostSaving;
+use Flarum\User\Event\Saving as UserSaving;
+use Ralkage\HCaptcha\Listeners\AddValidatorRule;
+use Ralkage\HCaptcha\Listeners\ConfigureLoginValidator;
+use Ralkage\HCaptcha\Validators\HCaptchaValidator;
+
+return [
+    (new Extend\Frontend('forum'))
+        ->js(__DIR__ . '/js/dist/forum.js')
+        ->css(__DIR__ . '/resources/less/forum.less')
+        ->content(Content\ExtensionSettings::class),
+
+    (new Extend\Frontend('admin'))
+        ->js(__DIR__ . '/js/dist/admin.js'),
+
+    new Extend\Locales(__DIR__ . '/resources/locale'),
+
+    (new Extend\Settings())
+        ->serializeToForum('hCaptchaDarkMode', 'hcaptcha-theme_dark_mode', 'boolVal')
+        ->serializeToForum('hCaptchaEnableLogin', 'ralkage-hcaptcha.enable_login', 'boolVal'),
+
+    (new Extend\ApiResource(ForumResource::class))
+        ->fields(fn () => [
+            Schema\Boolean::make('postWithoutHCaptcha')
+                ->get(fn ($forum, Context $context) => $context->getActor()->hasPermission('ralkage-hcaptcha.postWithoutHCaptcha')),
+        ]),
+
+    (new Extend\ApiResource(DiscussionResource::class))
+        ->fields(Api\HCaptchaFields::class),
+
+    (new Extend\ApiResource(PostResource::class))
+        ->fields(Api\HCaptchaFields::class),
+
+    (new Extend\ApiResource(UserResource::class))
+        ->fields(Api\HCaptchaFields::class),
+
+    (new Extend\Validator(HCaptchaValidator::class))
+        ->configure(AddValidatorRule::class),
+
+    (new Extend\Validator(LogInValidator::class))
+        ->configure(ConfigureLoginValidator::class),
+
+    (new Extend\Event())
+        ->listen(UserSaving::class, Listeners\RegisterValidate::class)
+        ->listen(DiscussionSaving::class, Listeners\StartDiscussionValidate::class)
+        ->listen(PostSaving::class, Listeners\ReplyPostValidate::class),
+];

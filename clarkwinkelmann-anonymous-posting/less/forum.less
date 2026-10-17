@@ -1,0 +1,61 @@
+.ComposerBody-header {
+    .item-anonymous-posting {
+        display: block;
+
+        .Checkbox {
+            margin-bottom: 0;
+        }
+
+        .AnonymousCheckboxLabel {
+            display: block;
+        }
+
+        .helpText {
+            margin-bottom: 0;
+        }
+    }
+}
+
+.AnonymousCheckbox--multiline {
+    .Checkbox-display, input {
+        // Change vertical alignment of checkbox because the label has 2 lines
+        margin-top: 5px;
+    }
+}
+
+.AnonymousCheckboxInfo {
+    color: var(--muted-color);
+}
+
+@anonymous-avatar-size: 24px;
+
+.item-anonymousUser {
+    // Flarum only shows the post header avatar on phones, we show a small version of the real author's avatar next to their name
+    .Post-avatar {
+        display: inline-flex;
+        vertical-align: middle;
+        margin-right: 5px;
+
+        --size: @anonymous-avatar-size;
+    }
+
+    // The Flarum style tries to put the badges next to the avatar column with absolute or negative positioning
+    // But that's where the anonymous avatar is. Move it to after the username instead
+    .PostUser-badges {
+        position: static;
+        float: none;
+        display: inline-block;
+        width: auto;
+        margin: 0 0 0 5px;
+    }
+}
+
+.AnonymousPostPrivacy {
+    // Similar styling to mentions to achieve a "label" design
+    background: var(--control-bg);
+    color: var(--control-color);
+    border-radius: var(--border-radius);
+    padding: 2px 5px;
+    display: inline-block;
+    cursor: default;
+}

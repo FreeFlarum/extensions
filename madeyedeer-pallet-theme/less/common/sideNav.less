@@ -1,0 +1,49 @@
+@media @desktop-up {
+  .sideNavContainer, .Page-container {
+    flex-direction: row-reverse;
+  }
+
+  .sideNav {
+    margin-right: 0px;
+    margin-left: 50px;
+
+    &.TagsPage-nav {
+      margin-left: 0;
+    }
+
+    &:not(.UserPage-nav) {
+      .Dropdown-menu {
+        li {
+          display: none; /* Hide all li elements by default */
+
+          &[class^="item-navTag"] {
+            display: list-item; /* Show li elements that have a class starting with "item-navTag" */
+          }
+        }
+      }
+    }
+
+    .Dropdown--select .Dropdown-menu  {
+      & > li.active > a {
+        font-weight: 600;
+      }
+
+      & > .Dropdown-separator {
+        display: none;
+      }
+    }  
+    
+    .User--directory &,
+    .GroupList-page & {
+      display: none;
+    }
+  }
+
+  .sideNav--hidden {
+    display: none;
+  }
+  
+  .sideNavOffset {
+    margin-left: 0px;
+  }
+}

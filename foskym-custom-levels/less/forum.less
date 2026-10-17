@@ -1,0 +1,87 @@
+@import 'common.less';
+
+.CustomLevel-level {
+  float: left;
+  margin-left: -85px;
+  top: 75px;
+}
+.Post--hidden {
+  .CustomLevel-level {
+    display: none;
+  }
+  &.revealContent .CustomLevel-level {
+    display: block;
+  }
+}
+
+.Post-header > ul > li.item-custom-levels {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .PostUser .CustomLevel-level {
+    display: none;
+  }
+
+  .Post-header > ul > li.item-custom-levels {
+    display: inline;
+  }
+}
+
+li.item-custom-levels,
+.Post-header > ul > li.item-custom-levels {
+  .CustomLevel-level {
+    float: none;
+    position: relative;
+    margin-left: 0;
+    width: auto;
+  }
+}
+
+li.item-custom-levels {
+  .CustomLevel-level {
+    top: 0;
+
+    .CustomLevel-bar {
+      display: none !important;
+    }
+  }
+}
+
+.Post-header > ul > li.item-custom-levels {
+  .CustomLevel-level {
+    margin-top: 0;
+    display: inline-block;
+
+    .CustomLevel-bar {
+      display: block !important;
+      width: 64px;
+    }
+  }
+}
+
+.ExpLogPage {
+  .ExpLogRecords {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+
+    li {
+      h5 {
+        margin: 0;
+        font-size: 1em;
+        display: flex;
+        justify-content: space-between;
+      }
+
+      p {
+        margin: 1em 0 0 0;
+        font-size: 0.9em;
+
+        span {
+          float: right;
+        }
+      }
+    }
+  }
+}

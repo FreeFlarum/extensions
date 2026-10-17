@@ -1,0 +1,55 @@
+<?php
+
+namespace Nearata\EmbedVideo;
+
+use Flarum\Api\Resource\DiscussionResource;
+use Flarum\Api\Resource\ForumResource;
+use Flarum\Extend;
+use Flarum\Post\Event\Saving;
+use Nearata\EmbedVideo\Api\Resource\DiscussionResourceFields;
+use Nearata\EmbedVideo\Api\Resource\ForumResourceFields;
+use Nearata\EmbedVideo\Command\PurgeCommand;
+use Nearata\EmbedVideo\Formatter;
+use Nearata\EmbedVideo\Post\Listener\SavingListener;
+
+return [
+    (new Extend\Frontend('forum'))
+        ->js(__DIR__.'/js/dist/forum.js')
+        ->css(__DIR__.'/less/forum.less'),
+
+    (new Extend\Frontend('admin'))
+        ->js(__DIR__.'/js/dist/admin.js')
+        ->css(__DIR__.'/less/admin.less'),
+
+    new Extend\Locales(__DIR__ . '/locale'),
+
+    (new Extend\Formatter)
+        ->configure(Formatter\Configure::class)
+        ->render(Formatter\Render::class),
+
+    (new Extend\Event)
+        ->listen(Saving::class, SavingListener::class),
+
+    (new Extend\ApiResource(ForumResource::class))
+        ->fields(ForumResourceFields::class),
+
+    (new Extend\ApiResource(DiscussionResource::class))
+        ->fields(DiscussionResourceFields::class),
+
+    (new Extend\Console())
+        ->command(PurgeCommand::class),
+
+    (new Extend\Settings)
+        ->default('nearata-embed-video.admin.settings.video_type.dash', false)
+        ->default('nearata-embed-video.admin.settings.video_type.flv', false)
+        ->default('nearata-embed-video.admin.settings.video_type.hls', false)
+        ->default('nearata-embed-video.admin.settings.video_type.shaka', false)
+        ->default('nearata-embed-video.admin.settings.video_type.webtorrent', false)
+        ->default('nearata-embed-video.admin.settings.options.airplay', false)
+        ->default('nearata-embed-video.admin.settings.options.hotkey', false)
+        ->default('nearata-embed-video.admin.settings.options.quality_switching', false)
+        ->default('nearata-embed-video.admin.settings.options.theme', '')
+        ->default('nearata-embed-video.admin.settings.options.logo', '')
+        ->default('nearata-embed-video.admin.settings.options.lang', 'en')
+        ->default('nearata-embed-video.admin.settings.options.modal_enabled', false)
+];

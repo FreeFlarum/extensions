@@ -1,0 +1,26 @@
+<?php
+
+namespace ClarkWinkelmann\GroupInvitation;
+
+use Flarum\Extend;
+
+return [
+    (new Extend\Frontend('forum'))
+        ->js(__DIR__ . '/js/dist/forum.js')
+        ->css(__DIR__ . '/resources/less/forum.less')
+        ->route('/get-role/{code:[a-zA-Z0-9_-]+}', 'group-invitation.get'),
+
+    (new Extend\Frontend('admin'))
+        ->js(__DIR__ . '/js/dist/admin.js')
+        ->css(__DIR__ . '/resources/less/admin.less'),
+
+    new Extend\Locales(__DIR__ . '/resources/locale'),
+
+    new Extend\ApiResource(InvitationResource::class),
+
+    (new Extend\Routes('api'))
+        ->post('/group-invitations/{code:[a-zA-Z0-9_-]+}/apply', 'group-invitation.apply', Controllers\ApplyController::class),
+
+    (new Extend\Policy())
+        ->modelPolicy(Invitation::class, Access\InvitationPolicy::class),
+];

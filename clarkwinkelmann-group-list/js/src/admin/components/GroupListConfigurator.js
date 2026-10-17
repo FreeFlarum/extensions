@@ -1,0 +1,170 @@
+import Button from 'flarum/common/components/Button';
+import Dropdown from 'flarum/common/components/Dropdown';
+import LoadingIndicator from 'flarum/common/components/LoadingIndicator';
+import Group from 'flarum/common/models/Group';
+import Icon from 'flarum/common/components/Icon';
+
+/* global app, m */
+
+const translationPrefix = 'clarkwinkelmann-group-list.admin.items.';
+
+export default class SelectFieldOptionEditor {
+  oninit() {
+    this.items = null;
+
+    app.store.find('clarkwinkelmann-group-list-items').then((items) => {
+      this.items = items;
+      m.redraw();
+    });
+  }
+
+  view() {
+    const existingGroups = this.items === null ? [] : this.items.map((item) => item.group().id());
+
+    return m(
+      'table.GroupListTable',
+      m('tbody', [
+        this.items === null
+          ? m('tr', m('td', LoadingIndicator.component()))
+          : this.items.map((item, index) =>
+              m('tr', [
+                m('td', item.group().namePlural()),
+                m(
+                  'td',
+                  m('textarea.FormControl', {
+                    onchange: (event) => {
+                      item
+                        .save({
+                          content: event.target.value,
+                        })
+                        .then(() => {
+                          m.redraw();
+                        });
+                    },
+                    value: item.content(),
+                  })
+                ),
+                m(
+                  'td',
+                  m(
+                    'button.Button',
+                    {
+                      onclick: (event) => {
+                        event.preventDefault(); // Do not close the settings modal
+                        this.moveOption(index, -1);
+                      },
+                    },
+                    Icon.component({
+                      name: 'fas fa-chevron-up',
+                    })
+                  )
+                ),
+                m(
+                  'td',
+                  m(
+                    'button.Button',
+                    {
+                      onclick: (event) => {
+                        event.preventDefault(); // Do not close the settings modal
+                        this.moveOption(index, 1);
+                      },
+                    },
+                    Icon.component({
+                      name: 'fas fa-chevron-down',
+                    })
+                  )
+                ),
+                m(
+                  'td',
+                  m(
+                    'button.Button.Button--danger',
+                    {
+                      onclick: (event) => {
+                        event.preventDefault(); // Do not close the settings modal
+                        item.delete().then(() => {
+                          this.items.splice(index, 1);
+                          m.redraw();
+                        });
+                      },
+                    },
+                    Icon.component({
+                      name: 'fas fa-times',
+                    })
+                  )
+                ),
+              ])
+            ),
+        m(
+          'tr',
+          m(
+            'td',
+            {
+              colspan: 5,
+            },
+            Dropdown.component(
+              {
+                label: app.translator.trans(translationPrefix + 'add'),
+                buttonClassName: 'Button',
+              },
+              app.store
+                .all('groups')
+                .filter((group) => {
+                  if (group.id() === Group.MEMBER_ID || group.id() === Group.GUEST_ID) {
+                    // Do not suggest "virtual" groups
+                    return false;
+                  }
+
+                  // Do not suggest groups already in use
+                  return existingGroups.indexOf(group.id()) === -1;
+                })
+                .map((group) =>
+                  Button.component(
+                    {
+                      onclick: () => {
+                        app.store
+                          .createRecord('clarkwinkelmann-group-list-items')
+                          .save({
+                            order: this.items.length,
+                            relationships: {
+                              group,
+                            },
+                          })
+                          .then((item) => {
+                            this.items.push(item);
+                            m.redraw();
+                          });
+                      },
+                    },
+                    group.namePlural()
+                  )
+                )
+            )
+          )
+        ),
+      ])
+    );
+  }
+
+  moveOption(index, moveIndex) {
+    const newIndex = index + moveIndex;
+
+    if (newIndex < 0 || newIndex > this.items.length - 1) {
+      return;
+    }
+
+    Promise.all([
+      this.items[index].save({
+        order: newIndex,
+      }),
+      this.items[newIndex].save({
+        order: index,
+      }),
+    ]).then(() => {
+      const move = this.items.splice(index, 1);
+
+      this.items.splice(newIndex, 0, move[0]);
+
+      m.redraw();
+    });
+  }
+}

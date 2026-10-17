@@ -1,0 +1,42 @@
+{
+    "name": "justoverclock/first-visit-indexpage",
+    "description": "Redirect first user visit to forum Rules Page",
+    "keywords": [
+        "redirect to rules",
+        "first visit"
+    ],
+    "type": "flarum-extension",
+    "license": "MIT",
+    "require": {
+        "flarum/core": "^2.0.0"
+    },
+    "require-dev": {
+        "flarum/testing": "^2.0.0"
+    },
+    "authors": [
+        {
+            "name": "Marco Colia",
+            "email": "info@flarum.it",
+            "role": "Developer"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Justoverclock\\FirstVisitIndexPage\\": "src/"
+        }
+    },
+    "extra": {
+        "flarum-extension": {
+            "title": "FirstVisitIndexPage",
+            "category": "",
+            "icon": {
+                "name": "fas fa-book-dead",
+                "backgroundColor": "red",
+                "color": "white"
+            }
+        },
+        "flagrow": {
+            "discuss": ""
+        }
+    }
+}

@@ -1,0 +1,129 @@
+@import 'common.less';
+
+.CustomLevels {
+  padding-top: 0 !important;
+  margin-top: 0 !important;
+
+  .hidden {
+    display: none;
+  }
+
+  .pull-right {
+    float: right;
+  }
+
+  .CustomLevels-menu {
+    background: var(--control-bg);
+    margin-bottom: 15px;
+
+
+    .Button {
+      padding: 12px 13px;
+      border-radius: 0;
+
+      &.item-selected {
+        background: var(--control-bg-darken-10);
+      }
+    }
+  }
+
+  .CustomLevels-container {
+    .AdminPage {
+      .container {
+        padding: 0 !important;
+      }
+    }
+  }
+
+  .CustomLevelsPage-container {
+    max-width: 100% !important;
+  }
+
+  .CustomLevels-levelsPage {
+    table {
+      width: 100%;
+
+      td,
+      th {
+        padding: 3px 5px;
+      }
+
+      th {
+        text-align: left;
+      }
+    }
+
+    .Checkbox {
+      padding: 0 10px;
+    }
+
+    .FormControl {
+      background: var(--body-bg);
+      border-color: var(--control-bg);
+
+      // We set the same as Flarum default, but with more specificity
+      &:focus,
+      &.focus {
+        border-color: var(--primary-color);
+      }
+    }
+  }
+}
+
+.CustomLevels-Checkbox {
+  .Checkbox-display {
+    font-size: 22px;
+  }
+}
+
+.CustomLevels-Columns {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+
+  .CustomLevels-Column {
+    flex: 1;
+    margin-right: 25px;
+    margin-bottom: 20px;
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+}
+
+@media (max-width: 992px) {
+  .CustomLevels-Columns {
+    display: block;
+
+    .CustomLevels-Column {
+      margin-right: 0;
+    }
+  }
+}
+
+.CustomLevels-FormGroup-Column {
+  width: 48%;
+  display: inline-block;
+  vertical-align: text-top;
+
+  &:last-child {
+    text-align: center;
+  }
+}
+
+@media (min-width: 992px) {
+  .CustomLevels {
+    .CustomLevelsPage-container {
+      max-width: 600px;
+      margin: 0;
+    }
+  }
+}
+
+[data-theme^=light] {
+  --control-bg-darken-10: darken(@control-bg-light, 10%);
+}
+[data-theme^=dark] {
+  --control-bg-darken-10: darken(@control-bg-dark, 10%);
+}

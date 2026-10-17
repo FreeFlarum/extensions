@@ -1,0 +1,50 @@
+{
+    "name": "ralkage/flarum-hcaptcha",
+    "description": "Increase your Flarum forum's security with hCaptcha.",
+    "keywords": [
+        "flarum",
+        "hCaptcha",
+        "antispam",
+        "anti-spam",
+        "captcha",
+        "spam",
+        "recaptcha"
+    ],
+    "type": "flarum-extension",
+    "license": "MIT",
+    "require": {
+        "php": "^8.3",
+        "flarum/core": "^2.0.0"
+    },
+    "authors": [
+        {
+            "name": "Ralkage",
+            "email": "me@ralkage.com",
+            "homepage": "https://ralkage.com"
+        }
+    ],
+    "homepage": "https://ralkage.com",
+    "support": {
+        "source": "https://github.com/Ralkage/flarum-hcaptcha",
+        "forum": "https://discuss.flarum.org/d/28257"
+    },
+    "autoload": {
+        "psr-4": {
+            "Ralkage\\HCaptcha\\": "src/"
+        }
+    },
+    "extra": {
+        "flarum-extension": {
+            "title": "hCaptcha",
+            "category": "feature",
+            "icon": {
+                "name": "fas fa-hand-paper",
+                "backgroundColor": "#00bcbf",
+                "color": "#fff"
+            }
+        },
+        "extiverse": {
+            "discuss": "https://discuss.flarum.org/d/28257"
+        }
+    }
+}

@@ -1,0 +1,52 @@
+.Criteria-list {
+    margin: 20px 0 20px 0;
+    padding: 10px 20px;
+
+    border: 1px solid var(--control-bg);
+    border-radius: 4px;
+
+    .ExtensionList {
+        display: grid;
+        grid-gap: 10px;
+        grid-template-columns: repeat(auto-fit, 90px);
+    }
+
+    .ExtensionListItem {
+        text-decoration: none !important;
+        transition: .15s ease-in-out;
+
+        &:hover {
+            transform: scale(1.05);
+        }
+    }
+
+    .ExtensionListItem-title {
+        display: block;
+        text-align: center;
+        margin-top: 5px;
+        color: var(--text-color);
+    }
+
+    .Criteria-list-heading {
+        font-weight: bold;
+        color: var(--muted-color);
+        margin-bottom: 15px;
+    }
+}
+
+.ExtensionListItem--invalid {
+    text-decoration: line-through;
+}
+.AutoModeratorInstructions, .ManagedGroups {
+    color: var(--control-color);
+
+    h4 {
+        margin-bottom: 5px;
+        font-weight: bold;
+    }
+
+    ul {
+        margin-block-start: .3em;
+        padding-inline-start: 28px;
+    }
+}

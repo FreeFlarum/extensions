@@ -1,0 +1,27 @@
+@body-bg-light:       #ffffff;
+@text-color-light:    #111111;
+@body-bg-dark:        #212938;
+@text-color-dark:     #ffffff;
+@heading-color-dark:  #dddddd;
+
+.pallet-colors(@body-bg; @primary-color; @secondary-color) {
+  --primary-color: @primary-color;
+  --secondary-color: @secondary-color;
+  --header-color: @primary-color;
+  .Button--color-vars(if((lightness(@primary-color) > 50%), @text-on-light, @text-on-dark), @primary-color, 'button-primary');
+
+  &[data-colored-header=true] {
+    --header-bg: @primary-color;
+    --header-color: @body-bg;
+    --header-control-bg: mix(#000, @primary-color, 10%);
+    --header-control-color: mix(@body-bg, @primary-color, 60%);
+  }
+}
+
+[data-theme^=light] {
+  .pallet-colors(@body-bg-light; #3B3F42; #8f8f8f);
+}
+
+[data-theme^=dark] {
+  .pallet-colors(@body-bg-dark; #4B93D1; #212938);
+}

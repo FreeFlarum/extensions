@@ -1,0 +1,2 @@
+(()=>{const e={n:o=>{const t=o&&o.__esModule?()=>o.default:()=>o;return e.d(t,{a:t}),t},d:(o,t)=>{for(var r in t)e.o(t,r)&&!e.o(o,r)&&Object.defineProperty(o,r,{enumerable:!0,get:t[r]})},o:(e,o)=>Object.prototype.hasOwnProperty.call(e,o)};(()=>{"use strict";const o=flarum.reg.get("core","admin/app");e.n(o)().initializers.add("justoverclock/first-visit-indexpage",()=>{console.log("[justoverclock/first-visit-indexpage] Hello, admin!")})})(),module.exports={}})();
+//# sourceMappingURL=admin.js.map

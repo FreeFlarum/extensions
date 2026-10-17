@@ -1,0 +1,14 @@
+{
+  "name": "@freeflarum/clarkwinkelmann-group-invitation",
+  "private": true,
+  "scripts": {
+    "dev": "webpack --mode development --watch",
+    "build": "webpack --mode production"
+  },
+  "devDependencies": {
+    "flarum-tsconfig": "^2",
+    "flarum-webpack-config": "^3.0.6",
+    "webpack": "^5",
+    "webpack-cli": "^5"
+  }
+}

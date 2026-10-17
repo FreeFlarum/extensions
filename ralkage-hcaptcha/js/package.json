@@ -1,0 +1,13 @@
+{
+  "private": true,
+  "name": "@freeflarum/ralkage-hcaptcha",
+  "devDependencies": {
+    "flarum-webpack-config": "^3.0.6",
+    "webpack": "^5",
+    "webpack-cli": "^5"
+  },
+  "scripts": {
+    "dev": "webpack --mode development --watch",
+    "build": "webpack --mode production"
+  }
+}

@@ -1,0 +1,33 @@
+{
+    "name": "ziiven/flarum-post-number",
+    "description": "A Flarum extension. Add post number in the discussion",
+    "type": "flarum-extension",
+    "license": "MIT",
+    "require": {
+        "flarum/core": "^2.0.0"
+    },
+    "support": {
+        "issues": "https://github.com/Ziiven/flarum-post-number/issues",
+        "source": "https://github.com/Ziiven/flarum-post-number"
+    },
+    "autoload": {
+        "psr-4": {
+            "Ziven\\PostNumber\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Ziven"
+        }
+    ],
+    "extra": {
+        "flarum-extension": {
+            "title": "Ziven Post Number",
+            "icon": {
+                "name": "fas fa-list-ol",
+                "backgroundColor": "#238c59",
+                "color": "#fff"
+            }
+        }
+    }
+}

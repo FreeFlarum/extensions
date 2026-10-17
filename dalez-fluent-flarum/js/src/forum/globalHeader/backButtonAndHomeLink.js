@@ -1,0 +1,75 @@
+import app from 'flarum/forum/app';
+import Component from 'flarum/common/Component';
+import LinkButton from 'flarum/common/components/LinkButton';
+
+function backUrl() {
+  if (app?.history?.canGoBack()) return app?.history?.backUrl();
+}
+
+class backButton extends Component {
+  view() {
+    return (
+      <LinkButton
+        className="Button Navigation-back Button--icon Button--flat"
+        href={backUrl()}
+        icon="fas fa-arrow-left"
+        aria-label={app?.previous?.title}
+        disabled={!app?.history?.canGoBack()}
+        onclick={(e) => {
+          if (e.shiftKey || e.ctrlKey || e.metaKey || e.which === 2) return;
+          e.preventDefault();
+          app?.history?.back();
+        }}
+      />
+    );
+  }
+}
+
+class homeLink extends Component {
+  attributes = data.resources.find((item) => {
+    return item.type == 'forums';
+  }).attributes;
+
+  view() {
+    let imgClassName = '';
+
+    if (this.attributes.faviconUrl) {
+      imgClassName = 'icon';
+    }
+
+    if (this.attributes.logoUrl) {
+      imgClassName = 'logo';
+    }
+
+    return (
+      <LinkButton
+        className={`Button Button--flat ${imgClassName}`}
+        href={this.attributes.baseUrl}
+        onclick={(e) => {
+          if (e.ctrlKey || e.metaKey || e.button === 1) return;
+          e.preventDefault();
+          app.history.home();
+
+          // Reload the current user so that their unread notification count is refreshed.
+          const userId = app.session.user?.id();
+          if (userId) {
+            app.store.find('users', userId);
+            m.redraw();
+          }
+        }}
+      >
+        {(() => {
+          if (this.attributes.faviconUrl && !this.attributes.logoUrl) {
+            return [<img className={imgClassName} src={this.attributes.faviconUrl} />, this.attributes.title];
+          }
+          if (this.attributes.logoUrl) {
+            return <img className={imgClassName} src={this.attributes.logoUrl} />;
+          }
+          return this.attributes.title;
+        })()}
+      </LinkButton>
+    );
+  }
+}
+
+export { backButton, homeLink };

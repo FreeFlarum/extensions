@@ -1,0 +1,87 @@
+<?php
+
+/*
+ * This file is based on ianm/oauth-amazon.
+ *
+ * Copyright (c) 2021 IanM.
+ *
+ *  For the full copyright and license information, please view the LICENSE.md
+ *  file that was distributed with this source code.
+ */
+
+namespace xrh0905\OAuthMicrosoft\Providers;
+
+use Flarum\Forum\Auth\Registration;
+use FoF\OAuth\Provider;
+use League\OAuth2\Client\Provider\AbstractProvider;
+use TheNetworg\OAuth2\Client\Provider\Azure;
+use TheNetworg\OAuth2\Client\Provider\AzureResourceOwner;
+
+class Microsoft extends Provider
+{
+    /**
+     * @var Azure
+     */
+    protected $provider;
+
+    public function name(): string
+    {
+        return 'microsoft';
+    }
+
+    public function link(): string
+    {
+        return 'https://learn.microsoft.com/azure/active-directory/develop/v2-oauth2-auth-code-flow';
+    }
+
+    public function fields(): array
+    {
+        return [
+            'client_id'     => 'required',
+            'client_secret' => 'required',
+            'tenant'        => 'nullable',
+        ];
+    }
+
+    public function provider(string $redirectUri): AbstractProvider
+    {
+        $provider = new Azure([
+            'clientId'               => $this->getSetting('client_id'),
+            'clientSecret'           => $this->getSetting('client_secret'),
+            'redirectUri'            => $redirectUri,
+            'defaultEndPointVersion' => Azure::ENDPOINT_VERSION_2_0,
+            'scopes'                 => ['openid', 'profile', 'email'],
+            'tenant'                 => $this->getSetting('tenant') ?: 'common',
+        ]);
+
+        return $this->provider = $provider;
+    }
+
+    public function pkceEnabled(): bool
+    {
+        return false;
+    }
+
+    /**
+     * The email claim of Microsoft accounts is not verified, so it is only suggested.
+     *
+     * @param AzureResourceOwner $user
+     */
+    public function suggestions(Registration $registration, mixed $user, string $token): void
+    {
+        $email = $user->getEmail();
+        $this->verifyEmail($email);
+
+        // preferred_username is a UPN (e.g. john.doe@contoso.com); strip the domain
+        // so that Flarum receives a plain username without the @ sign.
+        $preferredUsername = $user->getPreferredUsername();
+        $username = $preferredUsername
+            ? (strstr($preferredUsername, '@', true) ?: $preferredUsername)
+            : $user->claim('name');
+
+        $registration
+            ->suggestEmail($email)
+            ->suggestUsername($username ?? '')
+            ->setPayload($user->toArray());
+    }
+}

@@ -1,0 +1,49 @@
+{
+    "name": "madeyedeer/flarum-pallet-theme",
+    "description": "Fork of Pallet theme for your forum. Original by Hasan Özbey.",
+    "keywords": [
+        "flarum",
+        "theme",
+        "pallet"
+    ],
+    "type": "flarum-extension",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Adrian McCay",
+            "email": "opensource@madeyedeer.com",
+            "homepage": "https://madeyedeer.com"
+        },
+        {
+            "name": "Hasan Özbey",
+            "email": "hasanoozbey@gmail.com",
+            "homepage": "https://github.com/the-turk"
+        }
+    ],
+    "support": {
+        "issues": "https://github.com/MadEyeDeer/flarum-pallet-theme/issues",
+        "source": "https://github.com/MadEyeDeer/flarum-pallet-theme"
+    },
+    "require": {
+        "flarum/core": "^2.0.0",
+        "flarum/tags": "*"
+    },
+    "suggest": {
+        "ianm/synopsis": "Give more volume to the discussion list."
+    },
+    "autoload": {
+        "psr-4": {
+            "MadEyeDeer\\Pallet\\": "src/"
+        }
+    },
+    "extra": {
+        "flarum-extension": {
+            "title": "Pallet Theme",
+            "icon": {
+                "name": "fas fa-pallet",
+                "backgroundColor": "#b72a2a",
+                "color": "#fff"
+            }
+        }
+    }
+}
