@@ -13,6 +13,14 @@ import IndexPage from 'flarum/forum/components/IndexPage';
 import RSS from 'vanilla-rss';
 import app from 'flarum/forum/app';
 
+// vanilla-rss reads these entry fields without checking them; some feeds leave them out
+class SafeRSS extends RSS {
+  _getTokenMap(entry) {
+    for (const field of ['link', 'title', 'author', 'content', 'contentSnippet']) entry[field] ??= '';
+    return super._getTokenMap(entry);
+  }
+}
+
 app.initializers.add('justoverclock/flarum-ext-newsfeed', () => {
   extend(IndexPage.prototype, 'view', function (vdom) {
     const hero = vdom.attrs.hero;
@@ -23,13 +31,13 @@ app.initializers.add('justoverclock/flarum-ext-newsfeed', () => {
     const FeedUrl = app.forum.attribute('FeedUrl');
     if (!FeedUrl) return;
 
-    const rss = new RSS(document.querySelector('#divRss'), FeedUrl, {
+    const rss = new SafeRSS(document.querySelector('#divRss'), FeedUrl, {
       limit: 5,
       ssl: true,
       layoutTemplate: "<div class='feed-container'>{entries}</div>",
       entryTemplate:
         "<li class='licss'><a class='titleFeed' target='_blank' href=\"{url}\">{title}</a><br/>{shortBodyPlain}... -  <b>{author}</b></li>",
     });
-    rss.render().then(() => {});
+    rss.render().catch(() => {});
   });
 });
