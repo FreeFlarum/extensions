@@ -1,5 +1,0 @@
-js/src export-ignore
-.git* export-ignore
-
-js/dist/*.js -diff
-assets/*.js -diff
