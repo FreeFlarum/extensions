@@ -10,7 +10,6 @@
     "clarkwinkelmann-catch-the-fish/js",
     "clarkwinkelmann-circle-groups/js",
     "clarkwinkelmann-composer-page/js",
-    "clarkwinkelmann-discussion-bookmarks/js",
     "clarkwinkelmann-group-invitation/js",
     "clarkwinkelmann-group-list/js",
     "clarkwinkelmann-money-rewards/js",
@@ -53,8 +52,7 @@
     "therealsujitk-gifs/js",
     "tohsakarat-table-of-content/js",
     "v17development-user-badges/js",
-    "xrh0905-oauth-microsoft/js",
-    "ziiven-post-number/js"
+    "xrh0905-oauth-microsoft/js"
   ],
   "scripts": {
     "build": "npm run build --workspaces --if-present"
