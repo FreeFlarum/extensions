@@ -1,0 +1,31 @@
+{
+    "name": "kk14569/flarum-theme-hub",
+    "description": "A modern and soft theme designed by 14569 for Flarum.",
+    "type": "flarum-extension",
+    "license": "GPL-3.0",
+    "require": {
+        "flarum/core": "^2.0.0"
+    },
+    "authors": [
+        {
+            "name": "14569",
+            "email": "notessentials@163.com",
+            "role": "Developer"
+        }
+    ],
+    "support": {
+        "issues": "https://github.com/kk14569/flarum-theme-hub/issues",
+        "source": "https://github.com/FreeFlarum/extensions/tree/main/kk14569-theme-hub"
+    },
+    "extra": {
+        "flarum-extension": {
+            "title": "Theme - Hub",
+            "category": "theme",
+            "icon": {
+                "name": "fas fa-th-large",
+                "backgroundColor": "#0076D4",
+                "color": "#fff"
+            }
+        }
+    }
+}
