@@ -12,7 +12,6 @@ import app from 'flarum/forum/app';
 import { extend } from 'flarum/common/extend';
 import extractText from 'flarum/common/utils/extractText';
 import IndexPage from 'flarum/forum/components/IndexPage';
-import WelcomeHero from 'flarum/forum/components/WelcomeHero';
 
 function socialLink(attribute, icon, title) {
   const url = app.forum.attribute(attribute);
@@ -81,15 +80,11 @@ function customHeader() {
 }
 
 app.initializers.add('justoverclock/custom-header', () => {
-  // The header goes above the index page's hero, which it replaces on the
-  // home page (the welcome hero is dropped, other heroes such as a tag's stay).
+  // The header goes above the index page's hero (the welcome hero is hidden
+  // by forum.less, as on Flarum 1; other heroes such as a tag's stay).
   extend(IndexPage.prototype, 'view', function (vdom) {
     const hero = vdom.attrs.hero;
 
-    vdom.attrs.hero = () => {
-      const original = hero ? hero() : null;
-
-      return [customHeader(), original && original.tag === WelcomeHero ? null : original];
-    };
+    vdom.attrs.hero = () => [customHeader(), hero ? hero() : null];
   });
 });
