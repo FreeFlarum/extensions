@@ -29,48 +29,30 @@ use Flarum\Likes\Event\PostWasUnliked;
 use FoskyM\CustomLevels\Event\LevelUpdated;
 use FoskyM\CustomLevels\Event\ExpUpdated;
 use FoskyM\CustomLevels\AutoRemoveEnum;
+use FoskyM\CustomLevels\ExpValue;
 use FoskyM\CustomLevels\Model\Level;
 
 class GiveExp
 {
-    protected $exp_for_post;
+    protected int $exp_for_post;
     protected int $post_min_length;
     protected int $post_max_times;
-    protected $exp_for_discussion;
+    protected int $exp_for_discussion;
     protected int $discussion_max_times;
-    protected $exp_for_like;
+    protected int $exp_for_like;
     protected int $auto_remove;
     protected bool $cascade_remove;
 
     public function __construct(protected SettingsRepositoryInterface $settings, protected Dispatcher $events)
     {
-        $this->exp_for_post = $this->settings->get('foskym-custom-levels.expForPost', 0);
+        $this->exp_for_post = ExpValue::roll($this->settings->get('foskym-custom-levels.expForPost'));
         $this->post_min_length = (int) $this->settings->get('foskym-custom-levels.postMinLength', 0);
         $this->post_max_times = (int) $this->settings->get('foskym-custom-levels.postMaxTimes', 0);
-        $this->exp_for_discussion = $this->settings->get('foskym-custom-levels.expForDiscussion', 0);
+        $this->exp_for_discussion = ExpValue::roll($this->settings->get('foskym-custom-levels.expForDiscussion'));
         $this->discussion_max_times = (int) $this->settings->get('foskym-custom-levels.discussionMaxTimes', 0);
-        $this->exp_for_like = $this->settings->get('foskym-custom-levels.expForLike', 0);
+        $this->exp_for_like = ExpValue::roll($this->settings->get('foskym-custom-levels.expForLike'));
         $this->auto_remove = (int) $this->settings->get('foskym-custom-levels.autoRemove', 1);
         $this->cascade_remove = (bool) $this->settings->get('foskym-custom-levels.cascadeRemove', false);
-
-        $this->exp_for_post = $this->parseValue($this->exp_for_post);
-        $this->exp_for_discussion = $this->parseValue($this->exp_for_discussion);
-        $this->exp_for_like = $this->parseValue($this->exp_for_like);
-    }
-
-    private function parseValue($value)
-    {
-        if (strpos($value, ',') > -1) {
-            $value = str_replace(' ', '', $value);
-            $value = str_replace('[', '', $value);
-            $value = str_replace(']', '', $value);
-            $value = explode(',', $value);
-            $value = random_int($value[0], $value[1]);
-        } else {
-            $value = $value < 0 ? 0 : floor($value);
-        }
-
-        return $value;
     }
 
     public function giveExp(?User $user, int $exp, string $type = '', array $relationship = []): bool

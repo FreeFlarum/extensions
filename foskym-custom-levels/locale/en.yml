@@ -18,6 +18,7 @@ foskym-custom-levels:
       expForLikeDesc: Requires flarum/likes extension. Pure number, no decimal. Or range, e.g.「[1, 10]」means a random number between 1 and 10
       autoRemove: Auto remove exp
       cascadeRemove: When a discussion is removed, remove the exp of the replies
+      invalid_exp_value: "{field}: enter a whole number from 0 to {max}, or a range such as [1, 10]"
 
     go_to_forum_quests: More settings in Forum Quests
 

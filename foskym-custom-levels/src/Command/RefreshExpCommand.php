@@ -32,6 +32,7 @@ use Flarum\Likes\Event\PostWasUnliked;
 use FoskyM\CustomLevels\Event\LevelUpdated;
 use FoskyM\CustomLevels\Event\ExpUpdated;
 use FoskyM\CustomLevels\AutoRemoveEnum;
+use FoskyM\CustomLevels\ExpValue;
 use FoskyM\CustomLevels\Model\Level;
 use FoskyM\CustomLevels\Model\ExpLog;
 use Carbon\Carbon;
@@ -47,28 +48,12 @@ class RefreshExpCommand extends Command
 
     public function __construct(protected SettingsRepositoryInterface $settings, protected Dispatcher $events)
     {
-        $this->exp_for_post = $this->settings->get('foskym-custom-levels.expForPost', 0);
+        $this->exp_for_post = $this->settings->get('foskym-custom-levels.expForPost');
         $this->post_min_length = (int) $this->settings->get('foskym-custom-levels.postMinLength', 0);
-        $this->exp_for_discussion = $this->settings->get('foskym-custom-levels.expForDiscussion', 0);
-        $this->exp_for_like = $this->settings->get('foskym-custom-levels.expForLike', 0);
+        $this->exp_for_discussion = $this->settings->get('foskym-custom-levels.expForDiscussion');
+        $this->exp_for_like = $this->settings->get('foskym-custom-levels.expForLike');
 
-        
         parent::__construct();
-    }
-
-    private function parseValue($value)
-    {
-        if (strpos($value, ',') > -1) {
-            $value = str_replace(' ', '', $value);
-            $value = str_replace('[', '', $value);
-            $value = str_replace(']', '', $value);
-            $value = explode(',', $value);
-            $value = random_int($value[0], $value[1]);
-        } else {
-            $value = $value < 0 ? 0 : floor($value);
-        }
-
-        return $value;
     }
 
     private function expLog($user, $exp, $recent_exp, $current_exp, $type)
@@ -98,16 +83,16 @@ class RefreshExpCommand extends Command
                 $user->exp = 0;
                 foreach ($user->posts as $post) {
                     if ($post->number == 1) {
-                        $user->exp += $this->parseValue($this->exp_for_discussion);
+                        $user->exp += ExpValue::roll($this->exp_for_discussion);
                     }
                     if (strlen($post->content) >= $this->post_min_length) {
-                        $user->exp += $this->parseValue($this->exp_for_post);
+                        $user->exp += ExpValue::roll($this->exp_for_post);
                     }
                 }
 
                 $user->posts->loadCount('likes');
 
-                $user->exp += $user->posts->sum('likes_count') * $this->parseValue($this->exp_for_like);
+                $user->exp += $user->posts->sum('likes_count') * ExpValue::roll($this->exp_for_like);
                 $user->save();
 
                 $this->expLog($user, $user->exp, 0, $user->exp, 'system_refresh');

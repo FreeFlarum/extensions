@@ -14,6 +14,7 @@ namespace FoskyM\CustomLevels;
 use Flarum\Api\Resource\UserResource;
 use Flarum\Api\Sort\SortColumn;
 use Flarum\Extend;
+use Flarum\Settings\Event\Saving as SettingsSaving;
 use Flarum\User\User;
 
 return [
@@ -55,7 +56,8 @@ return [
         ->get('/exp/refresh', 'custom-levels.exp.refresh', Api\Controller\RefreshExpController::class),
 
     (new Extend\Event())
-        ->listen(Event\ExpUpdated::class, Listeners\ExpUpdatedListener::class),
+        ->listen(Event\ExpUpdated::class, Listeners\ExpUpdatedListener::class)
+        ->listen(SettingsSaving::class, Listeners\ValidateExpSettings::class),
 
     (new Extend\Notification())
         ->type(Notification\LevelUpdatedNotification::class, ['alert']),
